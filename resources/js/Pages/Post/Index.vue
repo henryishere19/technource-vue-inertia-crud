@@ -1,6 +1,6 @@
 <template>
 
-    <section class="bg-gray-50 dark:bg-gray-900 flex items-center">
+    <section class="bg-indigo-50 dark:bg-gray-900 flex items-center">
     <div class="max-w-screen-xl px-4 mx-auto lg:px-12 w-full">
         <!-- Start coding here -->
         <div class="relative bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
@@ -35,9 +35,9 @@
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         {{ post.title }}
                     </th>
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        <Link as="button" :href="`posts/${post.id}/edit`">Edit</Link>&nbsp;
-                        <button @click="deletePost(post.id)">Delete</button>
+                    <th scope="row" class="px-6 py-4 font-medium text-white-900 whitespace-nowrap dark:white-white">
+                        <Link as="button" :href="`posts/${post.id}/edit`" class="inline-flex items-center px-4 py-2 bg-indigo-800 dark:bg-indigo-800 border border-transparent rounded-md font-semibold text-xs text-white dark:text-white uppercase tracking-widest hover:bg-indigo-700 dark:hover:bg-indigo-500 focus:bg-indigo-700 dark:focus:bg-white active:bg-indigo-900 dark:active:bg-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-indigo-800 transition ease-in-out duration-150">Edit</Link>&nbsp;
+                        <DangerButton @click="deletePost(post.id)">Delete</DangerButton>
                     </th>
                 </tr>
             </tbody>
@@ -46,7 +46,7 @@
 </template>
 <script setup>
 import { Link, useForm } from "@inertiajs/vue3";
-
+import DangerButton from '@/Components/DangerButton.vue';
 defineProps({
   posts: {
     type: Array,
